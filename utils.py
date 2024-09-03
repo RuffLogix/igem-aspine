@@ -17,6 +17,17 @@ def valid_sequence(sequence_list: List[str]) -> bool:
     -------
     bool
         True if all sequences are valid, False otherwise.
+
+    Examples
+    --------
+    >>> valid_sequence(['ACGT', 'ACGT'])
+    True
+
+    >>> valid_sequence(['ANGT', 'ACGT', 'ACGT', 'ACGT'])
+    False
+
+    >>> valid_sequence(['ACGT', 'ACGT', 'ACGT', 'ACGT', 'ACGT'])
+    True
     """
 
     for sequence in sequence_list:
@@ -40,6 +51,14 @@ def encode_sequence(sequence_list: List[str]) -> npt.NDArray[np.float32]:
     -------
     np.ndarray
         A 3D numpy array of shape (n_sequences, sequence_len, 4), where n_sequences is the number of sequences in the input list, and sequence_len is the length of each sequence. The last dimension has size 4 and corresponds to the one-hot encoding of the nucleotides (A, C, G, T).
+
+    Examples
+    --------
+    >>> encode_sequence(['ACGT'])
+    array([[[1., 0., 0., 0.],
+            [0., 1., 0., 0.],
+            [0., 0., 1., 0.],
+            [0., 0., 0., 1.]], dtype=float32)
     """
 
     if not valid_sequence(sequence_list):
