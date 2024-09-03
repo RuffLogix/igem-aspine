@@ -22,6 +22,10 @@ class XPressoModel:
             The shape of the promoter data.
         halflife_shape : Tuple[int]
             The shape of the halflife data.
+
+        Examples
+        --------
+        >>> model = XPressoModel(promoter_shape=(1000, 4, ), halflife_shape=(8,))
         """
 
         self.promoter_shape = promoter_shape
@@ -45,6 +49,14 @@ class XPressoModel:
         -------
         npt.NDArray[np.float32]
             The model's prediction.
+
+        Examples
+        --------
+        >>> model = XPressoModel(promoter_shape=(1000, 4, ), halflife_shape=(8,))
+        >>> promoter = np.random.rand(1, 1000, 4).astype(np.float32)
+        >>> halflife = np.random.rand(1, 8).astype(np.float32)
+        >>> model(promoter, halflife)
+        array([0.5], dtype=float32)
         """
 
         return self._model.predict([promoter, halflife], batch_size=64).flatten()
@@ -89,6 +101,15 @@ class XPressoModel:
         -------
         Dict[str, List[float]]
             A dictionary containing the training and validation loss and accuracy history.
+
+        Examples
+        --------
+        >>> model = XPressoModel(promoter_shape=(1000, 4, ), halflife_shape=(8,))
+        >>> promoter = np.random.rand(1, 1000, 4).astype(np.float32)
+        >>> halflife = np.random.rand(1, 8).astype(np.float32)
+        >>> y = np.random.rand(1).astype(np.float32)
+        >>> model.fit(promoter, halflife, y, promoter, halflife, y)
+        {'loss': [0.5], 'val_loss': [0.5], 'mean_squared_error': [0.5], 'val_mean_squared_error': [0.5]}
         """
 
         save_path = os.path.join(save_dir, "bestparams.keras")
