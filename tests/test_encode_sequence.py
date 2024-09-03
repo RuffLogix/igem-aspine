@@ -23,7 +23,7 @@ ENCODE_SEQUENCE_TESTCASES = [
     # Testcase 2. Empty sequence.
     ([], constants.INVALID_SEQUENCE_EMPTY_ERROR, True),
     # Testcase 3. Invalid nucleotides in sequence.
-    (["ACNT"], constants.INVALID_SEQUENCE_NUCLOTIDES_ERROR, True),
+    (["AcZT"], constants.INVALID_SEQUENCE_NUCLOTIDES_ERROR, True),
     # Testcase 4. Multiple sequences.
     (
         ["ACCC", "GT"],
@@ -41,6 +41,22 @@ ENCODE_SEQUENCE_TESTCASES = [
                     [0.0, 0.0, 0.0, 0.0],
                     [0.0, 0.0, 0.0, 0.0],
                 ],
+            ],
+            dtype=np.float32,
+        ),
+        False,
+    ),
+    # Testcase 5. Single Sequence with N.
+    (
+        ["ACNT"],
+        np.array(
+            [
+                [
+                    [1.0, 0.0, 0.0, 0.0],
+                    [0.0, 1.0, 0.0, 0.0],
+                    [0.0, 0.0, 0.0, 0.0],
+                    [0.0, 0.0, 0.0, 1.0],
+                ]
             ],
             dtype=np.float32,
         ),
