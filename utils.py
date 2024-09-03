@@ -41,6 +41,7 @@ def encode_sequence(sequence_list: List[str]) -> npt.NDArray[np.float32]:
     np.ndarray
         A 3D numpy array of shape (n_sequences, sequence_len, 4), where n_sequences is the number of sequences in the input list, and sequence_len is the length of each sequence. The last dimension has size 4 and corresponds to the one-hot encoding of the nucleotides (A, C, G, T).
     """
+
     if not valid_sequence(sequence_list):
         raise ValueError()
 
