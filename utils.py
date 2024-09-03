@@ -61,8 +61,10 @@ def encode_sequence(sequence_list: List[str]) -> npt.NDArray[np.float32]:
             [0., 0., 0., 1.]], dtype=float32)
     """
 
+    # Check if the input sequences contain invalid nucleotides
     if not valid_sequence(sequence_list):
         raise ValueError(constants.INVALID_SEQUENCE_NUCLOTIDES_ERROR)
+    # Check if the input sequences are empty
     if len(sequence_list) == 0:
         raise ValueError(constants.INVALID_SEQUENCE_EMPTY_ERROR)
 
