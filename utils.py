@@ -34,8 +34,8 @@ def valid_sequence(sequence_list: List[str]) -> bool:
 
     for sequence in sequence_list:
         for nucleotide in sequence:
-            is_n_nucleotide = nucleotide is not "N" and nucleotide is not "n"
-            if nucleotide not in constants.SEQUENCE_INDEX and is_n_nucleotide:
+            has_n_nucleotide = bool(nucleotide == "N" or nucleotide == "n")
+            if nucleotide not in constants.SEQUENCE_INDEX and not has_n_nucleotide:
                 return False
 
     return True
