@@ -62,7 +62,9 @@ def encode_sequence(sequence_list: List[str]) -> npt.NDArray[np.float32]:
     """
 
     if not valid_sequence(sequence_list):
-        raise ValueError()
+        raise ValueError(constants.INVALID_SEQUENCE_NUCLOTIDES_ERROR)
+    if len(sequence_list) == 0:
+        raise ValueError(constants.INVALID_SEQUENCE_EMPTY_ERROR)
 
     # Get the number of sequences and the length of each sequence
     n_sequences = len(sequence_list)
