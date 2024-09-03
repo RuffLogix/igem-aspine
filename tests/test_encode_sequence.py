@@ -1,6 +1,7 @@
-from utils import encode_sequence
-import constants
 import numpy as np
+
+import constants
+from utils import encode_sequence
 
 ENCODE_SEQUENCE_TESTCASES = [
     # Testcase 1. Single sequence.
