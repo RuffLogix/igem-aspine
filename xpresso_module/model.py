@@ -1,5 +1,5 @@
 import os
-from typing import Dict, List, Self, Tuple
+from typing import Dict, List, Tuple
 
 import numpy as np
 import numpy.typing as npt
@@ -9,6 +9,8 @@ from tensorflow.keras.metrics import *
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.optimizers import SGD, Adam
 from tensorflow.keras.utils import plot_model
+
+import xpresso_module.constants as constants
 
 
 class XPressoModel:
@@ -62,16 +64,16 @@ class XPressoModel:
         return self._model.predict([promoter, halflife], batch_size=64).flatten()
 
     def fit(
-        self: Self,
+        self,
         train_promoter: npt.NDArray[np.float32],
         train_halflife: npt.NDArray[np.float32],
         train_y: npt.NDArray[np.float32],
         valid_promoter: npt.NDArray[np.float32],
         valid_halflife: npt.NDArray[np.float32],
         valid_y: npt.NDArray[np.float32],
-        batch_size: int = 64,
-        n_epochs: int = 250,
-        save_dir: str = "./checkpoints",
+        batch_size: int = constants.DEFAULT_BATCH_SIZE,
+        n_epochs: int = constants.DEFAULT_N_EPOCHS,
+        save_dir: str = constants.DEFAULT_SAVE_DIR,
     ) -> Dict[str, List[float]]:
         """
         Fit the model to the training data.
@@ -112,7 +114,7 @@ class XPressoModel:
         {'loss': [0.5], 'val_loss': [0.5], 'mean_squared_error': [0.5], 'val_mean_squared_error': [0.5]}
         """
 
-        save_path = os.path.join(save_dir, "bestparams.keras")
+        save_path = os.path.join(save_dir, constants.DEFAULT_CHECKPOINT_NAME)
 
         # Create a callback that saves the model's weights
         checkpoint_callback = ModelCheckpoint(
@@ -141,7 +143,7 @@ class XPressoModel:
 
         return result.history
 
-    def _create_model(self: Self) -> Model:
+    def _create_model(self) -> Model:
         """
         Create the Xpresso model.
         """
