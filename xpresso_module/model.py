@@ -143,6 +143,23 @@ class XPressoModel:
 
         return result.history
 
+    def load(self, model_path: str):
+        """
+        Load a model from a file.
+
+        Parameters
+        ----------
+        model_path : str
+            The path to the model file.
+
+        Examples
+        --------
+        >>> model = XPressoModel(promoter_shape=(1000, 4, ), halflife_shape=(8,))
+        >>> model.load("model.keras")
+        """
+
+        self._model = load_model(model_path)
+
     def _create_model(self) -> Model:
         """
         Create the Xpresso model.
