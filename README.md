@@ -20,16 +20,8 @@ This project built with python with tensorflow framwork.
 ### Files
 This is the file structure of the project:
 ```
-├── data/                               # Data file
-│   └── Aspine/                         # Main dataset
-│       ├── OUR_DATA.csv                # Combined data file
-│       └── README.md                   # Data documentation
-│   └── Xpresso/                        # Xpresso reference data
-│       ├── test.h5                     # Xpresso testing data
-│       ├── train.h5                    # Xpresso training data
-│       ├── valid.h5                    # Xpresso validation data
-│       └── README.md                   # Data documentation
-│   └── Saved_Weights/                  #
+├── notebooks/                          #
+│   └── iGem_Xpresso.ipynb              #
 ├── tests/                              #
 │   └── test_encode_sequence.py         #
 ├── xpresso_module/                     #
