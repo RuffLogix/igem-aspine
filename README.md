@@ -1,5 +1,7 @@
 # Team Bangkok-NMH 2024 Software Tool
 
+[Our Team Wiki](https://2024.igem.wiki/bangkok-nmh/)
+
 If your team competes in the [**Software & AI** village](https://competition.igem.org/participation/villages) or wants to
 apply for the [**Best Software Tool** prize](https://competition.igem.org/judging/awards), you **MUST** host all the
 code of your team's software tool in this repository, `main` branch. By the **Wiki Freeze**, a
