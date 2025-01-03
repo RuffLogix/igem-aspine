@@ -1,6 +1,6 @@
 # Team Bangkok-NMH 2024 Software Tool
 
-[Our Team Wiki](https://2024.igem.wiki/bangkok-nmh/)
+[Our Team Wiki](https://2024.igem.wiki/bangkok-nmh/) | [Official Team Page](https://teams.igem.org/5251)
 
 If your team competes in the [**Software & AI** village](https://competition.igem.org/participation/villages) or wants to
 apply for the [**Best Software Tool** prize](https://competition.igem.org/judging/awards), you **MUST** host all the
